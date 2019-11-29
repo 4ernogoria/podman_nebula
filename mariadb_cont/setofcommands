@@ -1,2 +1,2 @@
 podman build -t mariadb-cs7 .
-podman run -dt --name=testmariadb -e MYSQL_ROOT_PASSWORD=Sonic2005 -e MYSQL_USER=oneadmin -e MYSQL_PASSWORD=Sonic2005  -v mysql-db:/var/lib/images -p 33060:3306 mariadb-cs7
+podman run -dt --ip=10.88.0.111 --name=testmariadb -e MYSQL_ROOT_PASSWORD=Sonic2005 -e MYSQL_USER=oneadmin -e MYSQL_PASSWORD=Sonic2005 -e MYSQL_DATABASE=opennebula  -v mysql-db:/var/lib/images -p 33060:3306 mariadb-cs7
