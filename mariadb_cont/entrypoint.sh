@@ -46,7 +46,8 @@ if [ "$1" = 'mysqld_safe' ]; then
 			echo "CREATE USER '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD' ;" >> "$tempSqlFile"
 			
 			if [ "$MYSQL_DATABASE" ]; then
-				echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* TO '$MYSQL_USER'@'%' ;" >> "$tempSqlFile"
+				echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* TO '$MYSQL_USER'@'%' ;" >> "$tempSqlFile" && /
+                                echo "SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED;" >> "$tempSqlFile"
 			fi
 		fi
 		
