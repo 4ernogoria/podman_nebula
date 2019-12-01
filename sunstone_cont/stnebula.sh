@@ -8,6 +8,9 @@ echo "memcached service is started"
 #if [ -d /var/lib/one ]; then echo "vars exist"; else tar xvzpf /varlibone.tar.gz; fi
 #if [ -d /etc/one ]; then echo "confs exist"; else tar xvzpf /etcone.tar.gz; fi
 ping localhost -c 3 -i 2 2>&1 >/dev/null
-echo "nginx is started, enjoy"
+echo "nginx is started"
 /usr/sbin/nginx
+echo "novnc is started, enjoy"
+/usr/bin/novnc-server start
+echo "starting nginx logging"
 tail -f /var/log/nginx/*.log

@@ -1,0 +1,2 @@
+podman run -dt --ip=10.88.0.113 --name=sunstone -v /etcone:/etc/one -v /var/lib/one:/var/lib/one -p 8000:80 -p 29876:29876 sunstone
+dont forget to set a proper DNS/ip of a nebula server in /etc/one/sustone-server, memcached parameter too
