@@ -1,0 +1,3 @@
+podman run -dt --ip=10.88.0.112 --name=nebula_new -v /var/lib/one:/var/lib/one -v /etcone:/etc/one -p 26330:2633 nebula
+everything is pretty selfexplanatory, but dont forget to change /etc/one/oned.conf for a proper mysql conf.
+stnebula.sh contains a commented line, in case of an installation on top the previous one(old confs exist) worth uncommenting
