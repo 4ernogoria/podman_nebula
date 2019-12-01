@@ -11,7 +11,9 @@ RUN yum -y install --setopt=tsflags=nodocs epel-release && \
                                            redhat-lsb-core \
                                            opennebula-node-kvm \
                                            opennebula-common && \
-    yum -y update && yum clean all
+    yum -y update && yum clean all && \
+    tar -cvzf /varlibone.tar.gz --remove-files /var/lib/one/* && \
+    tar -cvzf /etcone.tar.gz --remove-files /etc/one/*
 
 RUN gem install bundler --version '<2.0' && \
 /usr/share/one/install_gems --yes

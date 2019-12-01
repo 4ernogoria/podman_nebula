@@ -1,18 +1,11 @@
 FROM centos:7
 
 MAINTAINER SharxDC
-#LABEL Vendor="CentOS"
-#LABEL License=GPLv2
-#LABEL Version=5.5.41
-
-#LABEL Build docker build --rm --tag centos/mariadb55 .
 
 RUN yum -y install --setopt=tsflags=nodocs epel-release && \ 
     yum -y install --setopt=tsflags=nodocs mariadb-server pwgen psmisc hostname && \ 
     yum -y erase vim-minimal && \
     yum -y update && yum clean all
-    
-
 
 # Fix permissions to allow for running on openshift
 #COPY fix-permissions.sh ./
@@ -20,7 +13,7 @@ RUN yum -y install --setopt=tsflags=nodocs epel-release && \
 #    ./fix-permissions.sh /var/log/mariadb/ && \
 #    ./fix-permissions.sh /var/run/
 
-COPY entrypoint.sh /
+COPY entrypoint_v01.sh /entrypoint.sh
 RUN /bin/chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
