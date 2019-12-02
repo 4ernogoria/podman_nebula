@@ -2,7 +2,8 @@ FROM centos:7
 MAINTAINER SharxDC
 
 COPY nebula.repo /etc/yum.repos.d/
-COPY stnebula.sh /usr/local/bin/ 
+COPY stnebula.sh /usr/local/bin/
+COPY ssh* /etc/ssh/ 
 RUN /bin/chmod +x /usr/local/bin/stnebula.sh
 
 RUN yum -y install --setopt=tsflags=nodocs epel-release && \
@@ -20,7 +21,7 @@ RUN gem install bundler --version '<2.0' && \
 
 #VOLUME /etc/one/
 #VOLUME /var/lib/one
-EXPOSE 2633
+EXPOSE 2633, 22
 
-USER 9869
+#USER 9869
 ENTRYPOINT /usr/local/bin/stnebula.sh
