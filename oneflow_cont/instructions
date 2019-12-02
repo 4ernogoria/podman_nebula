@@ -1,0 +1,2 @@
+podman run -dt --ip=10.88.0.117 --name=flow-gate -v /var/lib/one:/var/lib/one -v /etcone:/etc/one -p 24740:2474 -p 50300:5030 flow-gate-working
+
