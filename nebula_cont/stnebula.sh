@@ -7,7 +7,7 @@ ls -la /var/lib/one
 /usr/bin/ssh-keygen -A
 /usr/sbin/sshd -p 22 -E /var/log/ssh.log
 #comment it in production?
-echo "Sonic2005" | /bin/passwd --stdin
+echo "Sonic2005" | /bin/passwd --stdin root
 #if mounted folders contain the configs from previous installations uncomment next lines, or nebula's gonna complain about the existing one_auth 
 #cd /var/lib/one/.one && ls | grep -v one_auth | xargs rm -rfv
 sudo -E -u oneadmin /usr/bin/oned 
